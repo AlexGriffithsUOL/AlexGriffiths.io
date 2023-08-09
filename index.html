@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <!-- <body style="left:0%; right:0%; padding:20%; padding-top:3%;">    -->
+    <body>
+      <ul style="width: 100%; height: auto; position: sticky; z-index: 1000;" class="sidenav" id="navigation">
+          <li><a style="background-color: #eee;"class="navbar active" href="#home">Home</a></li>
+          <li><a style="background-color: #BBB;" class="navbar" href="#recent">Recent Works</a></li>
+          <li><a style="background-color: #888;" class="navbar" href="#about">About Me</a></li>
+          <li><a style="background-color: #555;" class="navbar" href="#contact">Contact</a></li>
+      </ul>
+      </nav>
+        <section id="home" style="color:#333;">
+          <div style="background-color: #EEE;" class="content">
+            <h2>Home</h2>
+            <p>Design. Perfect. Repeat.</p>
+            <p>My name is Alexander Griffiths, currently a freelance developer based in Milton Keynes, UK. I have worked on a wide range of AI and Robotics projects, and have a strong foundation in the field.</p>
+            <p>I am passionate about being on the cutting edge, to strive for excellence and produce the best work that I can.</p>
+            <p></p>
+            <p>Please enjoy my work.</p>
+          </div>
+        </section>
+        <section id="recent" style="color:#666;">
+          <div style="background-color: #BBB;" class = "content fade-in">
+            <h2>Recent works</h2>
+            <h3>Robotics</h3>
+            <h4>Automated Security</h4>
+            <p>I set up ROS 2 Galactic on windows,  running a websocket with a live video feed from a robot capable of doing navigation around a perimeter using rigidly defined rules for navigation however lacking path planning, written in Python.</p>
+            <p>This project was run in a scrum team, adhering to strict routines independent of external oversight, with a large documentation and report written at the end and an accompanying video tutorial on running the software.</p>
+            <p>The footage of the robot was entirely from the simulator VREP as no real-world robot could be acquired to prototype with.</p>
+            <h4>Automated Exploration</h4>
+            <p>This project was written inside of a deployed Docker running Ubuntu, with the program being written in Python. The main navigation algorithm was the RRT algorith, with the navigation stack being run in the background to produce a robot capable of advanced planning while performing SLAM.</p>
+            <p>The slam-toolbox was included in the plugins for the project to help create a map and to draw map meta-data into the python script and OpenCV was used for the image processing requirements for segmenting relevant landmarks and identifying them.</p>
+            <p>An accompanying markdown file to direct the user is included alongisde a narrated video explaining the topic including things such as the computational complexity.</p>
+            <p>Gazebo was used as a simulator as the main robot needed was the turtlebot 3 and it was not available for this project.</p>
+            <h3>Artificial Intelligence and Machine Learning</h3>
+            <h4>Big Data Solution</h4>
+            <p></p>
+            <h4>Meta-Learning as a secondary diagnostic aid</h4>
+            <p>For my dissertation I produced a Meta-Learning algorithm, capable of diagnosing cancer after training on a dataset of 20,000 images. This model was able to diagnose lung and colon cancers from histeopathographs, with training times under 2 hours.</p>
+            <p>Included in this project was an indepth exploration of the topic with a large and varied range of research into different related subtopics. Another included section was the scalable system for comparing training over epochs and statistics calculations.</p>
+            <p>Despite the complexity of overfit mitigation and evaluation, there was a minor amount of overfitting mitigation and a larger emphasis on evaluation through methods such as confusion matrices.</p>
+            <h4>Fraud detection and data cleansing</h4>
+            <p>Another project is my automated debit card fraud detection system, firstly imputating and cleaning data before using diagnostic analysis and PCA to analyse and extract relevant features from the data lake, and then further develop and evaluate the model. There is also a dictionary and counter system tracks independent customers and their previously interacted accounts. </p>
+            <p>Drawing from a large amount of data, this would ideally be solved through the use of the Hadoop ecosystem, such as PySpark. The main focus of this project was to build a python pipeline involving generators and decorators to help with different aspects of forming a data pipeline.</p>
+            <h4>Missing Data imputation experiments</h4>
+            <p>I experimented with using GANs and few-shot learning to create a model that can generate custom data imputation on varying sizes of databases with missing data, allowing for a cheap and fast alternative to common methods such as mean imputation or mode imputation.</p>
+            <p>While proving difficult, GANs show some potential when combined with the few-shot paradigm to create a resulting set of models that attempt to tackle the issue, with varying levels of success.</p>    
+          </div>
+        </section>
+        <section id="about" style="color:#DDD">
+          <div style="background-color: #888;" class = "content fade-in">
+            <h2>About</h2>
+            <p>I am a 21 year old, recent graduate from the University of Lincoln, waiting on results. I am expected a grade within the range of a 2:1 to a 1st class (with honors).</p>
+            <p>In my spare time, I enjoy building ML models and pipelines, refining my knowledge in mathematics and surrealist art, as well as enjoying travel and foreign cinema.</p>
+            <p>I am passionate about ethics and societal consideration in the AI industry and also enjoy learning new languages.</p>
+            <p>Currently, I practice very remedial spanish, with differing amounts of basic knowledge of many languages.</p>
+          </div>
+        </section>
+        <section id="contact" style="color: #fff;;">
+          <div style = "background-color: #555;" class = "content fade-in">
+            <h2>Contact</h2>
+            <p>My contact details are as follows:</p>
+            <p>Telephone number: 07701028269</p>
+            <p>Email: Alex.John.Griffiths.2001@gmail.com</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/alexander-griffiths-4b8933237/">https://www.linkedin.com/in/alexander-griffiths-4b8933237/</a></p>
+            <p></p>
+          </div>
+        </section>
+
+    </body>
+</html>
+<script>
+  let section = document.querySelectorAll("section");
+  let menu = document.querySelectorAll("ul li a");
+
+  window.onscroll = () => {
+    section.forEach((i) => {
+      let top = window.scrollY;
+      let offset = i.offsetTop - 150;
+      let height = i.offsetHeight;
+      let id = i.getAttribute("id");
+
+      if (top >= offset && top < offset + height) {
+        menu.forEach((link) => {
+          link.classList.remove("active");
+          document
+            .querySelector("ul li a[href*=" + id + "]")
+            .classList.add("active");
+
+            temp_color = document.querySelector("ul li a[href*="+ id+"]").style.backgroundColor;
+            document.getElementById("navigation").style.backgroundColor = temp_color;
+            document.body.style.backgroundColor = temp_color;
+        });
+      }
+    });
+  };
+
+  function reveal() {
+    var reveals = document.querySelectorAll(".fade-in");
+
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 20;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("visible");
+      } else {
+        reveals[i].classList.remove("visible");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", reveal);
+</script>

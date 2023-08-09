@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+    <body>   
+        <noscript>
+            You need javascript to run this
+        </noscript>
+        <ul class="sidenav">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a class="active" href="Contact.html">Contact</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+          <div class="content">
+            <h2>Contact Details</h2>
+            <p class="fade-in">This example use media queries to transform the sidenav to a top navigation bar when the screen size is 900px or less.</p>
+            <p class="fade-in">We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
+            <p class="fade-in">You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+            <p class="fade-in">You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+            <p class="fade-in">You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+            <p class="fade-in">You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+            <p class="fade-in">You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+            <p class="fade-in">You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+            <p class="fade-in">You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+          </div>
+    </body>
+</html>
+
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".fade-in");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("visible");
+          } else {
+            reveals[i].classList.remove("visible");
+          }
+        }
+      }
+    
+      window.addEventListener("scroll", reveal);
+      </script>
